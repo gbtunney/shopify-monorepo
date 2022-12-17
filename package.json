@@ -1,0 +1,73 @@
+{
+    "name": "@gillian/root",
+    "version": "0.0.0",
+    "description": "Shopify Monorepo",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com:gbtunney/shopify-monorepo.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Gillian Tunney",
+        "email": "gbtunney@mac.com"
+    },
+    "scripts": {
+        "\n========== COMMIT >> ==========": "",
+        "commit": "pnpm run precommit && pnpm exec git-cz",
+        "cz": "pnpm exec git-cz",
+        "precommit": "pnpm run fix && pnpm run check && pnpm run commit:linted",
+        "commit:linted": "git add $(git diff HEAD --cached --name-only)",
+        "\n========== BUILD >> ==========": "",
+        "build": "pnpm -r build",
+        "\n========== CODE STYLE >> ==========": "",
+        "lint": "cross-var eslint \"$npm_package_config_eslint_path.{$npm_package_config_eslint_extensions}\" -c $npm_package_config_eslint_config",
+        "prettier": "cross-var prettier {$npm_package_config_prettier_path}.{$npm_package_config_prettier_extensions}",
+        "\n========== CHECK >> ==========": "",
+        "check": "pnpm check:self && pnpm -r check",
+        "check:self": "pnpm lint",
+        "\n========== FIX >> ==========": "",
+        "fix": "pnpm fix:self && pnpm -r fix",
+        "fix:self": "pnpm prettier --write",
+        "\n========== CLEAN >> ==========": "",
+        "clean": "pnpm -r clean",
+        "\n========== UNINSTALL >> ==========": "",
+        "uninstall": "pnpm run clean && pnpm uninstall:list && pnpm run uninstall:rm && pnpm run uninstall:lock",
+        "uninstall:list": "find . -name 'node_modules' -type d -prune",
+        "uninstall:rm": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+        "uninstall:lock": "rm -f pnpm-lock.yaml && rm -f packages/**/pnpm-lock.yaml",
+        "\n========== LIFECYCLE >> ==========": "",
+        "post:install": "pnpm run build",
+        "prepare": "husky install",
+        "\n========== TEST >> ==========": "",
+        "test": "echo 'test'"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.25.2",
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@commitlint/cz-commitlint": "^17.1.2",
+        "@snailicide/build-config": "^0.2.0",
+        "@types/node": "^18.7.18",
+        "commitizen": "^4.2.5",
+        "cross-var": "^1.1.0",
+        "eslint": "^8.27.0",
+        "husky": "^8.0.1",
+        "prettier": "^2.7.1"
+    },
+    "prettier": "@snailicide/build-config/prettier",
+    "config": {
+        "eslint": {
+            "extensions": "ts,js,cjs,mjs",
+            "path": "*",
+            "config": ".eslintrc.cjs"
+        },
+        "prettier": {
+            "extensions": "ts,js,cjs,mjs,cts,json,yaml,yml,graphql,md",
+            "path": "docs/**/*,*"
+        },
+        "commitizen": {
+            "path": "@commitlint/cz-commitlint"
+        }
+    }
+}
