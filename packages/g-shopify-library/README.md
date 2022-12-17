@@ -10,7 +10,7 @@
 
 ## Repository
 
-[snailicide-monorepo](https://github.com/gbtunney/snailicide-monorepo.git)
+[shopify-monorepo](https://github.com/gbtunney/shopify-monorepo.git)
 
 ## Author
 

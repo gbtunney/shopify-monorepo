@@ -62,13 +62,13 @@
         "\n========== FIX >> ==========": "",
         "fix": "pnpm prettier --write"
     },
-    "homepage": "https://github.com/gbtunney/snailicide-monorepo#readme",
+    "homepage": "https://github.com/gbtunney/shopify-monorepo#readme",
     "bugs": {
-        "url": "https://github.com/gbtunney/snailicide-monorepo/issues"
+        "url": "https://github.com/gbtunney/shopify-monorepo/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gbtunney/snailicide-monorepo.git"
+        "url": "git+https://github.com/gbtunney/shopify-monorepo.git"
     },
     "license": "MIT",
     "author": {
