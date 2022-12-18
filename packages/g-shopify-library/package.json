@@ -99,8 +99,7 @@
         "ts-node": "^10.9.1",
         "ts-node-dev": "^2.0.0",
         "typescript": "^4.9.3",
-        "yargs": "^17.6.2",
-        "zod": "^3.19.1"
+        "yargs": "^17.6.2"
     },
     "prettier": "@snailicide/build-config/prettier",
     "config": {
@@ -119,7 +118,8 @@
         "@types/ramda": "^0.28.20",
         "ramda": "^0.28.0",
         "ramda-adjunct": "^3.3.0",
-        "type-fest": "^3.1.0"
+        "type-fest": "^3.1.0",
+        "zod": "^3.19.1"
     },
     "jest": {
         "preset": "ts-jest",
