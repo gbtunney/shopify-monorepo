@@ -1,0 +1,13 @@
+{
+    "extends": "@snailicide/build-config/tsconfig-base",
+    "compilerOptions": {
+        "sourceMap": true,
+        "rootDir": ".",
+        // Type declaration settings.
+        "declaration": true,
+        "declarationMap": true,
+        "removeComments": false
+    },
+    "exclude": ["**/*.test.ts"],
+    "include": ["**/*.ts", "**/*.cts", "**/*.mts"]
+}

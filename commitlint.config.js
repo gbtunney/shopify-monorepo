@@ -8,6 +8,15 @@ module.exports = {
     extends: ['@commitlint/config-conventional'],
     rules: {
         'scope-empty': [2, 'never'],
-        'scope-enum': [2, 'always', ['root', 'release', 'g-shopify-library']],
+        'scope-enum': [
+            2,
+            'always',
+            [
+                'root',
+                'release',
+                'g-shopify-library',
+                'vite-plugin-shopify-liquid-modules',
+            ],
+        ],
     },
 }

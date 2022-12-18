@@ -1,0 +1,16 @@
+{
+    "extends": "@snailicide/build-config/tsconfig-base",
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "composite": true,
+        "noEmit": true,
+        "module": "ESNext",
+        "rootDir": ".",
+        "types": ["node"]
+    },
+    "exclude": ["./node_modules"],
+    "files": ["vite.config.ts","tsup.config.ts"],
+    "include": ["./**/*.test.ts"],
+    "references": [{ "path": "./src" }, { "path": "./example_modules" }]
+}
