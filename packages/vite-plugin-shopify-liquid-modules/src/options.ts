@@ -5,20 +5,22 @@ const plugin_options_schema = zod.object({
     themeRoot: zod.optionalDefault(zod.filePath, './theme'),
     modulesDir: zod.optionalDefault(zod.filePath, './modules'),
 
-    sections: z
-        .object({
+    sections: zod.optionalDefault(
+        z.object({
             prefix: zod.optionalDefault(zod.string(), 'g-'),
             copy: zod.optionalDefault(zod.boolean(), false),
             file_name: zod.optionalDefault(zod.string(), 'section'),
-        })
-        .optional(),
-    snippets: z
-        .object({
+        }),
+        { prefix: 'g-', copy: true, file_name: 'section' }
+    ),
+    snippets: zod.optionalDefault(
+        z.object({
             prefix: zod.optionalDefault(zod.string(), 'g-'),
             copy: zod.optionalDefault(zod.boolean(), false),
             file_name: zod.optionalDefault(zod.string(), '*'),
-        })
-        .optional(),
+        }),
+        { prefix: 'g-', copy: true, file_name: '*' }
+    ),
 })
 
 const resolved_plugin_options_schema = zod.object({

@@ -30,6 +30,7 @@
         "tsup.config.ts"
     ],
     "scripts": {
+        "test:example": "pnpm build:ts && pnpm exec vite build",
         "\n========== BUILD >> ==========": "",
         "build": "pnpm build:ts && pnpm build:rollup",
         "build:ts": "tsc --build",
