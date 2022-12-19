@@ -16,6 +16,7 @@ module.exports = {
                 'release',
                 'g-shopify-library',
                 'vite-plugin-shopify-liquid-modules',
+                'vite-plugin-shopify-theme-schema',
             ],
         ],
     },
