@@ -47,7 +47,7 @@
         "test": "jest",
         "test:watch": "jest --watch",
         "\n========== PUBLISH >> ==========": "",
-        "release": "pnpm prerelease && pnpm publish--no-git-checks",
+        "release": "pnpm prerelease && pnpm publish --no-git-checks",
         "prerelease": "pnpm clean && pnpm build && pnpm fix && pnpm check && pnpm test",
         "release:test": "pnpm prerelease && pnpm publish --dry-run --no-git-checks",
         "\n========== CLEAN >> ==========": "",
