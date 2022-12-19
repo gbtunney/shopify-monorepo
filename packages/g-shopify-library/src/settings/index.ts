@@ -1,9 +1,9 @@
 import { z } from 'zod'
 import type { Merge } from 'type-fest'
-import { BasicSettings, BasicSettingType } from './basic.js'
-import { SpecializedSettings, SpecializedSettingType } from './specialized.js'
-import { ShopifySettings, ShopifySettingType } from './shopify.js'
-import { SidebarSettings, SideBarSettingType } from './sidebar.js'
+import { BasicSettings } from './basic.js'
+import { SpecializedSettings } from './specialized.js'
+import { ShopifySettings } from './shopify.js'
+import { SidebarSettings } from './sidebar.js'
 export const SettingSchemaMap = {
     ...BasicSettings,
     ...SpecializedSettings,
@@ -15,34 +15,20 @@ const baseSchema = z.object({
     info: z.string().optional(),
     id: z.string(),
 })
-
-export type { BasicSettingType } from './basic.js'
-export type { SpecializedSettingType } from './specialized.js'
-export type { ShopifySettingType } from './shopify.js'
-export type { SideBarSettingType } from './sidebar.js'
 export type SettingTypes = keyof typeof SettingSchemaMap
+export type AllSettingTypes = SettingTypes
 
 export type Setting<
     Type extends keyof typeof SettingSchemaMap = keyof typeof SettingSchemaMap,
     id extends string = string
-> = Merge<
-    z.infer<typeof SettingSchemaMap[Type]>,
-    id extends string
-        ? Merge<z.infer<typeof baseSchema>, { id: id }>
-        : z.infer<typeof baseSchema>
->
-
-export type Settings<Type = Setting[]> = Type extends Setting[]
-    ? Type
-    : Type extends Record<string, Setting>
-    ? Array<
-          {
-              [Key in keyof Type]: Key extends string
-                  ? Setting<Type[Key]['type'], Key>
-                  : never
-          }[keyof Type]
+> = Type extends 'paragraph' | 'header'
+    ? z.infer<typeof SettingSchemaMap[Type]>
+    : Merge<
+          z.infer<typeof SettingSchemaMap[Type]>,
+          id extends string
+              ? Merge<z.infer<typeof baseSchema>, { id: id }>
+              : z.infer<typeof baseSchema>
       >
-    : never
 
 export type SettingsMapped<T extends Record<string, Setting>> = Array<
     {
@@ -51,31 +37,49 @@ export type SettingsMapped<T extends Record<string, Setting>> = Array<
             : never
     }[keyof T]
 >
-
-export const settingSchema = z.array(
+export const single_setting_schema = z.union([
+    z.intersection(
+        z.discriminatedUnion('type', [
+            BasicSettings.text,
+            BasicSettings.textarea,
+            BasicSettings.number,
+            BasicSettings.radio,
+            BasicSettings.checkbox,
+            BasicSettings.select,
+            BasicSettings.range,
+            ...Object.values(SpecializedSettings),
+            ...Object.values(ShopifySettings),
+        ]),
+        baseSchema
+    ),
     z.discriminatedUnion('type', [
-        BasicSettings.text,
-        BasicSettings.textarea,
-        BasicSettings.number,
-        BasicSettings.radio,
-        BasicSettings.checkbox,
-        BasicSettings.select,
-        BasicSettings.range,
-        ...Object.values(SpecializedSettings),
-        ...Object.values(ShopifySettings),
-        ...Object.values(SidebarSettings),
-    ])
-)
+        SidebarSettings.paragraph,
+        SidebarSettings.header,
+    ]),
+])
+export const setting_schema = z.array(single_setting_schema)
 
-export const validateSettingsSchema = <Type = z.infer<typeof settingSchema>>(
-    value: Type,
-    schema: z.ZodSchema = settingSchema
-): value is Type extends undefined ? z.infer<typeof schema> : Type =>
-    schema.safeParse(value).success
+export type SingleSetting = z.infer<typeof single_setting_schema>
+export type Settings = z.infer<typeof setting_schema>
 
-export const debugSettingsSchema = <Type = z.infer<typeof settingSchema>>(
-    value: Type,
-    schema: z.ZodSchema = settingSchema
-): value is z.infer<typeof schema> => schema.parse(value)
+export const parseValidatorFactory =
+    <T extends z.ZodTypeAny>(schema: T) =>
+    (data: unknown): data is z.infer<T> => {
+        return schema.safeParse(data).success
+    }
+const getSettingsFactory =
+    <T extends typeof setting_schema | typeof single_setting_schema>(
+        schema: T
+    ) =>
+    (data: unknown): z.infer<T> | undefined => {
+        if (parseValidatorFactory(schema)(data)) {
+            return schema.parse(data)
+        }
+        return undefined
+    }
+
+export const parseSettings = getSettingsFactory(setting_schema)
+export const parseSingleSetting = getSettingsFactory(single_setting_schema)
+export const parseSetting = parseSingleSetting
 
 export {}

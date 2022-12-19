@@ -1,4 +1,10 @@
-import { Setting, SettingsMapped, validateSettingsSchema } from './index.js'
+import {
+    Setting,
+    SettingsMapped,
+    SingleSetting,
+    Settings,
+    parseSettings,
+} from './index.js'
 
 describe('zod', () => {
     it('zod', () => {
@@ -46,7 +52,7 @@ describe('zod', () => {
             },
         ]
 
-        const validateTest = validateSettingsSchema(test_icon_settings)
+        const validateTest = parseSettings(test_icon_settings)
         const test_color_toggle: Setting<'checkbox', 'color_toggle'> = {
             id: 'color_toggle',
             type: 'checkbox',
@@ -55,9 +61,9 @@ describe('zod', () => {
             info: 'Use TAILWIND classes for text-red-500 etc.',
         } as const
 
-        const test = validateSettingsSchema<
-            Setting<'checkbox', 'color_toggle33'>[]
+        const test = parseSettings<
             // @ts-expect-error should throw error
+            Setting<'checkbox', 'color_toggle33'>[]
         >([test_color_toggle])
 
         //this is how a section can be declared,typed, etc.
@@ -65,7 +71,7 @@ describe('zod', () => {
             bg_color: Setting<'color'>
             fg_color: Setting<'color'>
         }
-        const exampleSection: SettingsMapped<SectionSettingsExample> = [
+        const exampleSectionSettings: SettingsMapped<SectionSettingsExample> = [
             {
                 id: 'bg_color',
                 type: 'color',
@@ -77,12 +83,70 @@ describe('zod', () => {
                 default: 'black',
             },
         ]
-        expect(validateSettingsSchema(exampleSection)).toBe(true)
+        expect(parseSettings(exampleSectionSettings)).toEqual([
+            { default: 'white', id: 'bg_color', type: 'color' },
+            { default: 'black', id: 'fg_color', type: 'color' },
+        ])
         const obj2: Setting<'text'> = {
             id: 'hi', //'css_classes',
             type: 'text',
             label: 'Add custom css below',
         }
+
+        const test_single_setting: SingleSetting = {
+            type: 'font_picker',
+            id: 'type_body_font',
+            default: 'assistant_n4',
+            label: 't:settings_schema.typography.settings.type_body_font.label',
+            info: 't:settings_schema.typography.settings.type_body_font.info',
+        }
+        const badSettingsFromDawn = [
+            {
+                type: 'header',
+                content:
+                    't:settings_schema.typography.settings.header__1.content',
+            },
+            {
+                type: 'font_picker',
+                id: 'type_header_font',
+                default: 'assistant_n4',
+                label: 't:settings_schema.typography.settings.type_header_font.label',
+                info: 't:settings_schema.typography.settings.type_header_font.info',
+            },
+            {
+                type: 'range',
+                id: 'heading_scale',
+                min: 100,
+                max: 150,
+                step: 5,
+                unit: '%',
+                label: 't:settings_schema.typography.settings.heading_scale.label',
+                default: 100,
+            },
+            {
+                type: 'header',
+                content:
+                    't:settings_schema.typography.settings.header__2.content',
+            },
+            {
+                type: 'font_picker',
+                id: 'type_body_font',
+                default: 'assistant_n4',
+                label: 't:settings_schema.typography.settings.type_body_font.label',
+                info: 't:settings_schema.typography.settings.type_body_font.info',
+            },
+            {
+                type: 'range',
+                //"id": "body_scale",
+                min: 100,
+                max: 130,
+                step: 5,
+                unit: '%',
+                label: 't:settings_schema.typography.settings.body_scale.label',
+                default: 100,
+            },
+        ]
+        expect(parseSettings(badSettingsFromDawn)).toBe(undefined)
     })
 })
 export {}

@@ -1,5 +1,7 @@
 import { z } from 'zod'
+import { parseValidatorFactory, setting_schema } from './index.js'
 /*
+reference
 export type ThemeInfo = {
     name: 'theme_info'
     theme_name: string //should be package eventually
@@ -9,7 +11,7 @@ export type ThemeInfo = {
     theme_support_url?: string
 }*/
 
-const ThemeInfo = z.object({
+const theme_info_schema = z.object({
     name: z.literal('theme_info'),
     theme_name: z.string(),
     theme_version: z.string(), //should be semver eventually
@@ -17,3 +19,37 @@ const ThemeInfo = z.object({
     theme_documentation_url: z.string().optional(),
     theme_support_url: z.string().optional(),
 })
+export type ThemeInfo = z.infer<typeof theme_info_schema>
+
+const global_settings_group_schema = z.object({
+    name: z.string(),
+    settings: setting_schema,
+})
+export type GlobalSettingsGroup = z.infer<typeof global_settings_group_schema>
+
+const global_settings_schema = z
+    .tuple([theme_info_schema])
+    .rest(global_settings_group_schema)
+
+export type GlobalSettingsSchema = z.infer<typeof global_settings_schema>
+const getGlobalSettingsFactory =
+    <
+        T extends
+            | typeof global_settings_group_schema
+            | typeof global_settings_schema
+    >(
+        schema: T
+    ) =>
+    (data: unknown): z.infer<T> | undefined => {
+        if (parseValidatorFactory(schema)(data)) {
+            return schema.parse(data)
+        }
+        return undefined
+    }
+
+export const parseThemeSettings = getGlobalSettingsFactory(
+    global_settings_schema
+)
+export const parseThemeSettingGroup = getGlobalSettingsFactory(
+    global_settings_group_schema
+)

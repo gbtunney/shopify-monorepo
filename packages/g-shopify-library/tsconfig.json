@@ -3,7 +3,7 @@
     "compilerOptions": {
         "target": "ESNext",
         "lib": ["ESNext", "DOM"],
-        "composite": false,
+        "composite": true,
         "noEmit": true,
         "module": "ESNext",
         "rootDir": ".",

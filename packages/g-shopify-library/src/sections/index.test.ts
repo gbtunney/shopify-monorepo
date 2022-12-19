@@ -1,8 +1,4 @@
-import {
-    sectionSchema,
-    debugSectionSchema,
-    validateSectionSchema,
-} from './index.js'
+import { parseSectionSchema } from './index.js'
 
 const example_block = [
     {
@@ -77,53 +73,13 @@ const example_section_full = {
     ],
     blocks: example_block,
 }
+
+//todo:write tests
 describe('SECTION SCHEMA', () => {
     it('SECTION SCHEMA', () => {
-        expect(validateSectionSchema(sectionSchema, example_section_full)).toBe(
+        /* expect(parseSectionSchema(sectionSchema, example_section_full)).toBe(
             true
-        )
+        )*/
     })
 })
 export {}
-/*   presets: [
-           {
-               name: 'preset 1',
-               settings: {
-                   bg_color: 'orange',
-               },
-               blocks: [
-                   {
-                       type: 'icon',
-                   },
-               ],
-           },
-           {
-               name: 'preset 5',
-               settings: {
-                   bg_color: 'orange',
-               },
-               blocks: [
-                   {
-                       type: 'icon',
-                   },
-               ],
-           },
-           {
-               name: 'preset 2',
-               blocks: [
-                   {
-                       type: 'icon',
-                       settings: {
-                           color_toggle: true,
-                       },
-                   },
-                   {
-                       type: 'text',
-                       settings: {
-                           heading: 'heading1',
-                           text_content: 'ffffd',
-                       },
-                   },
-               ],
-           },
-       ],*/

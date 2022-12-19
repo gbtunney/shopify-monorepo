@@ -1,3 +1,5 @@
+/* * THIS WHOLE THING IS DEPRICATED * */
+
 import { stringUtils, tg } from '@snailicide/g-library'
 const { capitalizeWords, unCamelCase } = stringUtils
 
