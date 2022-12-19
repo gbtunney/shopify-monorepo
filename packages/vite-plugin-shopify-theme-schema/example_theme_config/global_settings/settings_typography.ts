@@ -1,11 +1,4 @@
-import {
-    Setting,
-    SettingsMapped,
-    SingleSetting,
-    Settings,
-    validateSettingsSchema,
-    parseSettings,
-} from '@snailicide/g-shopify-library'
+import { Setting, SettingsMapped } from '@snailicide/g-shopify-library'
 import {
     GlobalSettingsGroup,
     parseThemeSettingGroup,

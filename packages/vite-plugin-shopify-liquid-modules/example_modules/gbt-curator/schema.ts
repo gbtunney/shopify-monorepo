@@ -1,20 +1,31 @@
-import { LocalSchema, defineSectionSchema } from '@snailicide/g-shopify-library'
-import type { CuratorGroupSettings } from './settings.js'
+import {
+    SectionSchema,
+    parseSectionSchema,
+} from '@snailicide/g-shopify-library'
 import curator_settings from './settings.js'
 
 export const getSchema = () => {
     const _settings = curator_settings
 
-    const schema: LocalSchema.Schema<CuratorGroupSettings> = {
+    const schema: SectionSchema = {
         name: 'Curator IO',
         tag: 'section',
         settings: _settings,
+        /* presets: [
+            {
+                name: 'gbt-curator-io',
+            },
+        ],*/
+    }
+    const result = parseSectionSchema(schema)
+
+    return {
+        ...schema,
         presets: [
             {
                 name: 'gbt-curator-io',
             },
         ],
     }
-    return defineSectionSchema(schema)
 }
 export default getSchema()

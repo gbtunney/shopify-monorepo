@@ -1,5 +1,11 @@
 # @snailicide/g-shopify-library
 
+## 0.2.0
+
+### Minor Changes
+
+-   v2 new,organized parsers using zod for theme settings,sections,blocks,types
+
 ## 0.1.0
 
 ### Minor Changes
