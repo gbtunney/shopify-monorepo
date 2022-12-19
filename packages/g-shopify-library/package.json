@@ -47,8 +47,9 @@
         "test": "jest",
         "test:watch": "jest --watch",
         "\n========== PUBLISH >> ==========": "",
-        "release": "pnpm prerelease && pnpm publish --access public --report-summary --no-git-checks",
+        "release": "pnpm prerelease && pnpm publish--no-git-checks",
         "prerelease": "pnpm clean && pnpm build && pnpm fix && pnpm check && pnpm test",
+        "release:test": "pnpm prerelease && pnpm publish --dry-run --no-git-checks",
         "\n========== CLEAN >> ==========": "",
         "clean": "pnpm clean:ts && pnpm clean:build",
         "clean:ts": "tsc --build --clean",
@@ -107,6 +108,11 @@
             "extensions": "ts,js,cjs,mjs,cts,json,yaml,yml,graphql,md",
             "path": "*,**/*"
         }
+    },
+    "publishConfig": {
+        "access": "public",
+        "no-git-checks": true,
+        "report-summary": true
     },
     "dependencies": {
         "@shopify/admin-graphql-api-utilities": "^2.0.1",
