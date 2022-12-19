@@ -138,3 +138,5 @@ pnpmfile.js
 
 #todo: figure out what to do with this
 *.test.js
+
+themes
