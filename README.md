@@ -10,9 +10,9 @@
 
 -   [@snailicide/g-shopify-library](./packages/g-shopify-library)
 
--   [@gillian/vite-plugin-shopify-liquid-modules](./packages/vite-plugin-shopify-liquid-modules)
+-   [@snailicide/vite-plugin-shopify-liquid-modules](./packages/vite-plugin-shopify-liquid-modules)
 
--   [@gillian/vite-plugin-shopify-theme-schema](./packages/vite-plugin-shopify-theme-schema)
+-   [@snailicide/vite-plugin-shopify-theme-schema](./packages/vite-plugin-shopify-theme-schema)
 
 ## Example
 
