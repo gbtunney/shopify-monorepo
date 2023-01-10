@@ -22,8 +22,8 @@ This plugin enables Shopify theme developers to structure their code into "modul
         -   [Using scripts in module folders](#using-scripts-in-module-folders)
         -   [Options](#options)
     -   [Inspiration](#inspiration)
-        -   [Liquid Schema Plugin _(webpack)_](#liquid-schema-plugin---webpack--)
-        -   [[vite-plugin-shopify-modules) by _(vite)_](#-vite-plugin-shopify-modules--https---githubcom-barrel-barrel-shopify-tree-main-packages-vite-plugin-shopify--by-barrel-ny---vite--)
+        -   Liquid Schema Plugin _(webpack)_
+        -   vite-plugin-shopify-modules) by _(vite)_
     -   [Helpful Links](#helpful-links)
     -   [To-Do](#to-do)
     -   [Bugs](#bugs)
