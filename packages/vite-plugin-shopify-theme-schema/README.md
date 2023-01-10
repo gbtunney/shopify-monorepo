@@ -1,4 +1,4 @@
-# Welcome to @snailicide/vite-plugin-shopify-theme-schema 👋
+# 🐌 Welcome to @snailicide/vite-plugin-shopify-theme-schema 🐌
 
 | [npm](https://www.npmjs.com/package/@snailicide/vite-plugin-shopify-theme-schema) | [GitHub](https://github.com/gbtunney/shopify-monorepo/tree/main/packages/vite-plugin-shopify-theme-schema) |
 
@@ -13,7 +13,7 @@ This plugin adds features to make it easier to manage the JSON schema files for 
 
 > Many thanks to [barrel-shopify](https://github.com/barrel/barrel-shopify) by Barrel NY for readme inspiration.
 
--   [Welcome to @snailicide/vite-plugin-shopify-theme-schema 👋](#welcome-to--snailicide-vite-plugin-shopify-theme-schema---)
+-   [🐌 Welcome to @snailicide/vite-plugin-shopify-theme-schema 🐌](#welcome-to--snailicide-vite-plugin-shopify-theme-schema---)
     -   [Author](#author)
     -   [Features](#features)
     -   [Examples](#examples)
@@ -22,7 +22,7 @@ This plugin adds features to make it easier to manage the JSON schema files for 
     -   [Usage](#usage)
         -   [Options](#options)
     -   [Inspiration](#inspiration)
-        -   [[vite-plugin-shopify-theme-settings](https://github.com/barrel/barrel-shopify/tree/main/packages/vite-plugin-shopify-theme-settings) by Barrel NY](#-vite-plugin-shopify-theme-settings--https---githubcom-barrel-barrel-shopify-tree-main-packages-vite-plugin-shopify-theme-settings--by-barrel-ny)
+        -   vite-plugin-shopify-theme-settings]
     -   [Helpful Links](#helpful-links)
     -   [To-Do](#to-do)
     -   [Bugs](#bugs)
@@ -35,7 +35,7 @@ This plugin adds features to make it easier to manage the JSON schema files for 
 
 ## Features
 
-###Dynamic Shopify Setting Schemas
+### Dynamic Shopify Setting Schemas
 
 -   Build Shopify Setting schemas dynamically from Typescript, Javascript, and JSON files
 -   Share and reuse schema partials between different files. Promotes efficient code reusability.
@@ -46,7 +46,7 @@ This plugin adds features to make it easier to manage the JSON schema files for 
 
 See [**example_theme_config**](./example_theme_config/) folder for usage examples of [validators](./example_theme_config/global_settings/settings_colors.ts) and [types](./example_theme_config/global_settings/settings_typography.ts).
 
-##Install
+## Install
 
 ```sh
 #npm
