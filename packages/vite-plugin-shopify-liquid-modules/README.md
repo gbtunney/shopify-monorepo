@@ -23,7 +23,7 @@ This plugin enables Shopify theme developers to structure their code into "modul
         -   [Options](#options)
     -   [Inspiration](#inspiration)
         -   Liquid Schema Plugin _(webpack)_
-        -   vite-plugin-shopify-modules) by _(vite)_
+        -   vite-plugin-shopify-modules _(vite)_
     -   [Helpful Links](#helpful-links)
     -   [To-Do](#to-do)
     -   [Bugs](#bugs)
