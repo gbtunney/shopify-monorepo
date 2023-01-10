@@ -1,5 +1,5 @@
 {
-    "name": "@gillian/vite-plugin-shopify-theme-schema",
+    "name": "@snailicide/vite-plugin-shopify-theme-schema",
     "version": "0.0.1",
     "description": "",
     "type": "module",

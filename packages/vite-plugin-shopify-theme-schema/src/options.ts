@@ -3,14 +3,15 @@ import { z } from 'zod'
 
 const plugin_theme_schema = zod.object({
     themeRoot: zod.optionalDefault(zod.filePath, '.'),
-    sourceCodeDir: zod.optionalDefault(zod.filePath, '.'),
-    entryPoints: zod.optionalDefault(z.record(z.string()), {}),
+    sourceCodeDir: zod.optionalDefault(zod.filePath, './src'),
+    entryPoints: zod.optionalDefault(z.record(z.string()), {
+        'settings_schema.json': 'settings_schema.js',
+    }),
 })
 
 const resolved_plugin_theme_schema = zod.object({
     themeRoot: zod.filePath,
     sourceCodeDir: zod.filePath,
-
     entryPoints: z.record(z.string()), //z.record(zod.filePath)
 })
 
