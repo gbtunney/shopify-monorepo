@@ -4,6 +4,8 @@ import {
     SingleSetting,
     Settings,
     parseSettings,
+    parseSingleSetting,
+    parseSettingsGroup,
 } from './index.js'
 
 describe('zod', () => {
@@ -87,6 +89,31 @@ describe('zod', () => {
             { default: 'white', id: 'bg_color', type: 'color' },
             { default: 'black', id: 'fg_color', type: 'color' },
         ])
+
+        expect(parseSettings(exampleSectionSettings)).toEqual([
+            { default: 'white', id: 'bg_color', type: 'color' },
+            { default: 'black', id: 'fg_color', type: 'color' },
+        ])
+
+        expect(parseSettingsGroup(exampleSectionSettings, 'prefix_')).toEqual([
+            { default: 'white', id: 'prefix_bg_color', type: 'color' },
+            { default: 'black', id: 'prefix_fg_color', type: 'color' },
+        ])
+
+        expect(
+            parseSingleSetting(
+                {
+                    id: 'fg_color',
+                    type: 'color',
+                    default: 'black',
+                },
+                'fg_color'
+            )
+        ).toEqual({
+            id: 'fg_color',
+            type: 'color',
+            default: 'black',
+        })
         const obj2: Setting<'text'> = {
             id: 'hi', //'css_classes',
             type: 'text',

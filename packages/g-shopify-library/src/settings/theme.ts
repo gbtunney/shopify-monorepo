@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { parseValidatorFactory, setting_schema } from './index.js'
+import { parseValidatorFactory, getSettingGroupSchema } from './index.js'
 /*
 reference
 export type ThemeInfo = {
@@ -21,23 +21,19 @@ const theme_info_schema = z.object({
 })
 export type ThemeInfo = z.infer<typeof theme_info_schema>
 
-const global_settings_group_schema = z.object({
+export const global_settings_section = z.object({
     name: z.string(),
-    settings: setting_schema,
+    settings: getSettingGroupSchema(),
 })
-export type GlobalSettingsGroup = z.infer<typeof global_settings_group_schema>
+export type GlobalSettingsSection = z.infer<typeof global_settings_section>
 
 const global_settings_schema = z
     .tuple([theme_info_schema])
-    .rest(global_settings_group_schema)
+    .rest(global_settings_section)
 
 export type GlobalSettingsSchema = z.infer<typeof global_settings_schema>
 const getGlobalSettingsFactory =
-    <
-        T extends
-            | typeof global_settings_group_schema
-            | typeof global_settings_schema
-    >(
+    <T extends typeof global_settings_section | typeof global_settings_schema>(
         schema: T
     ) =>
     (data: unknown): z.infer<T> | undefined => {
@@ -50,6 +46,6 @@ const getGlobalSettingsFactory =
 export const parseThemeSettings = getGlobalSettingsFactory(
     global_settings_schema
 )
-export const parseThemeSettingGroup = getGlobalSettingsFactory(
-    global_settings_group_schema
+export const parseThemeSettingSection = getGlobalSettingsFactory(
+    global_settings_section
 )

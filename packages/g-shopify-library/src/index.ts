@@ -10,7 +10,7 @@ export {
 
 /* * Settings * */
 export {
-    parseSettings,
+    parseSettingsGroup,
     parseSingleSetting,
     parseSetting,
 } from './settings/index.js'
@@ -18,17 +18,21 @@ export type {
     Setting,
     SettingsMapped,
     Settings,
+    SettingGroup,
     SingleSetting,
     SettingTypes,
     AllSettingTypes,
 } from './settings/index.js'
 
 /* * Theme Settings * */
-export { parseThemeSettings, parseThemeSettingGroup } from './settings/theme.js'
+export {
+    parseThemeSettings,
+    parseThemeSettingSection,
+} from './settings/theme.js'
 export type {
     ThemeInfo,
-    GlobalSettingsGroup,
     GlobalSettingsSchema,
+    GlobalSettingsSection,
 } from './settings/theme.js'
 
 /* * Section Schema & Block Schema * */

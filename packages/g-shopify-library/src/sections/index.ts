@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { zod } from '@snailicide/g-library'
-import { parseValidatorFactory, setting_schema } from '../settings/index.js'
+import {
+    parseValidatorFactory,
+    getSettingGroupSchema,
+} from '../settings/index.js'
 
 const ELEMENT_TAGS = [
     'div',
@@ -43,7 +46,7 @@ const block_schema = z.object({
     type: z.string(), //change to literal?
     name: z.string().optional(), ///dont know if optional
     limit: zod.number().int().optional(), //todo:might be wrong
-    settings: setting_schema,
+    settings: getSettingGroupSchema(),
 })
 export type BlockSchema = z.infer<typeof block_schema>
 const section_schema = z.object({
@@ -53,7 +56,7 @@ const section_schema = z.object({
     limit: zod.optionalDefault(zod.number().int(), 3), //todo:might be wrong
     templates: z.array(pageTypes).optional(),
 
-    settings: setting_schema.optional(),
+    settings: getSettingGroupSchema().optional(),
     blocks: z.array(block_schema).optional(),
 })
 export type SectionSchema = z.infer<typeof section_schema>

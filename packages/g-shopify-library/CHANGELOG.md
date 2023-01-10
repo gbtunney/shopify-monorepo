@@ -5,6 +5,8 @@
 ### Patch Changes
 
 -   updated readme
+-   added id param to parseSingleSetting
+-   added id_prefix and id_suffix param to parseSettingsGroup
 
 ## 0.2.0
 
