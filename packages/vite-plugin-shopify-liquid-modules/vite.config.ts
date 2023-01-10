@@ -4,6 +4,7 @@ import vitePluginModule from './src/index.js'
 export default defineConfig({
     base: './',
     build: {
+        manifest: true,
         minify: false,
         outDir: 'example_theme',
         emptyOutDir: false,

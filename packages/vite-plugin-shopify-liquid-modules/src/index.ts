@@ -56,6 +56,7 @@ const processModules = ({
                     section_file.absolute,
                     'utf8'
                 )
+                //  todo:  %dir%
                 const result_path = `${outSectionsDir}/${sections.prefix}${true_module_name}.liquid`
                 const newSection = replaceSchemaTags(
                     section_file_content,
@@ -97,6 +98,15 @@ const processModules = ({
         }
     }
 }
+
+/**
+ * Thanks and credit for this function goes to author, i cannot regex this well.
+ *
+ * @author David Warrington
+ * @function replaceSchemaTags
+ * @see {@link https://github.com/davidwarrington/liquid-schema-plugin |Liquid Schema Plugin}
+ * @see {@link https://github.com/davidwarrington/liquid-schema-plugin/blob/master/plugin/index.js#L105 | source function}
+ */
 const replaceSchemaTags = async (
     fileContents: string,
     module_path: string,

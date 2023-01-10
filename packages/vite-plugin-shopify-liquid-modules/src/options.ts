@@ -1,17 +1,22 @@
 import { zod } from '@snailicide/g-library'
 import { z } from 'zod'
 
+/**
+ * Plugin Options Schema
+ *
+ * @param {string} themeRoot ['./theme'] - file path to shopify theme root.
+ * @param {string} modulesDir ['./modules'] - description
+ */
 const plugin_options_schema = zod.object({
     themeRoot: zod.optionalDefault(zod.filePath, './theme'),
     modulesDir: zod.optionalDefault(zod.filePath, './modules'),
-
     sections: zod.optionalDefault(
         z.object({
-            prefix: zod.optionalDefault(zod.string(), 'g-'),
+            prefix: zod.optionalDefault(zod.string(), 'g-'), // todo: 'g-%dir%'
             copy: zod.optionalDefault(zod.boolean(), false),
             file_name: zod.optionalDefault(zod.string(), 'section'),
         }),
-        { prefix: 'g-', copy: true, file_name: 'section' }
+        { prefix: 'g-', copy: false, file_name: 'section' }
     ),
     snippets: zod.optionalDefault(
         z.object({
@@ -19,7 +24,7 @@ const plugin_options_schema = zod.object({
             copy: zod.optionalDefault(zod.boolean(), false),
             file_name: zod.optionalDefault(zod.string(), '*'),
         }),
-        { prefix: 'g-', copy: true, file_name: '*' }
+        { prefix: 'g-', copy: false, file_name: '*' }
     ),
 })
 
@@ -60,6 +65,4 @@ export const resolveOptions = (
         plugin_options_schema.parse(options)
     }
     return undefined
-    //modulesDir: typeof options.modulesDir !== 'undefined' ? path.normalize(options.modulesDir) : 'modules',
-    //themeRoot: typeof options.themeRoot !== 'undefined' ? path.normalize(options.themeRoot) : './'
 }

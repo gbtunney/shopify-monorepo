@@ -1,7 +1,7 @@
 {
-    "name": "@gillian/vite-plugin-shopify-liquid-modules",
+    "name": "@snailicide/vite-plugin-shopify-liquid-modules",
     "version": "0.0.1",
-    "description": "",
+    "description": "This vite plugin enables Shopify theme developers to structure their code into module folders ",
     "type": "module",
     "main": "./dist/index.js",
     "types": "types/index.d.ts",
@@ -26,8 +26,7 @@
         "dist",
         "example_modules",
         "CHANGELOG.md",
-        "vite.config.ts",
-        "tsup.config.ts"
+        "vite.config.ts"
     ],
     "scripts": {
         "test:example": "pnpm build:ts && pnpm exec vite build",
