@@ -1,4 +1,4 @@
-# Welcome to @snailicide/g-shopify-library👋
+# Welcome to gbtunney/shopify-monorepo🐌
 
 > Shopify theme development resources created by Gillian Tunney, a freelance developer and designer in Buffalo,NY
 
