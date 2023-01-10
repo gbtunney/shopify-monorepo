@@ -22,9 +22,9 @@ export type Setting<
     Type extends keyof typeof SettingSchemaMap = keyof typeof SettingSchemaMap,
     id extends string = string
 > = Type extends 'paragraph' | 'header'
-    ? z.infer<typeof SettingSchemaMap[Type]>
+    ? z.infer<(typeof SettingSchemaMap)[Type]>
     : Merge<
-          z.infer<typeof SettingSchemaMap[Type]>,
+          z.infer<(typeof SettingSchemaMap)[Type]>,
           id extends string
               ? Merge<z.infer<typeof baseSchema>, { id: id }>
               : z.infer<typeof baseSchema>
