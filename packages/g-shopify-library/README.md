@@ -37,7 +37,7 @@
 
 See **@snailicide/vite-plugin-shopify-liquid-modules** for an usage example of using the [validators](./../vite-plugin-shopify-liquid-modules/example_modules/gbt-curator/schema.ts) and [types](./../vite-plugin-shopify-liquid-modules/example_modules/gbt-curator/settings.ts).
 
-##Usage
+## Usage
 
 ### Install
 
