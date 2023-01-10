@@ -1,4 +1,4 @@
-# Welcome to @snailicide/vite-plugin-shopify-liquid-modules 👋
+# 🐌 Welcome to @snailicide/vite-plugin-shopify-liquid-modules 🐌
 
 | [npm](https://www.npmjs.com/package/@snailicide/vite-plugin-shopify-liquid-modules) | [GitHub](https://github.com/gbtunney/shopify-monorepo/tree/main/packages/vite-plugin-shopify-liquid-modules) |
 
@@ -13,7 +13,7 @@ This plugin enables Shopify theme developers to structure their code into "modul
 
 > Many thanks to [barrel-shopify](https://github.com/barrel/barrel-shopify) by Barrel NY for readme inspiration.
 
--   [Welcome to @snailicide/vite-plugin-shopify-liquid-modules 👋](#welcome-to--snailicide-vite-plugin-shopify-liquid-modules---)
+-   [🐌 Welcome to @snailicide/vite-plugin-shopify-liquid-modules 🐌](#welcome-to--snailicide-vite-plugin-shopify-liquid-modules---)
     -   [Author](#author)
     -   [Features](#features)
         -   [Build](#build)
@@ -23,7 +23,7 @@ This plugin enables Shopify theme developers to structure their code into "modul
         -   [Options](#options)
     -   [Inspiration](#inspiration)
         -   [Liquid Schema Plugin _(webpack)_](#liquid-schema-plugin---webpack--)
-        -   [[vite-plugin-shopify-modules](https://github.com/barrel/barrel-shopify/tree/main/packages/vite-plugin-shopify) by Barrel NY _(vite)_](#-vite-plugin-shopify-modules--https---githubcom-barrel-barrel-shopify-tree-main-packages-vite-plugin-shopify--by-barrel-ny---vite--)
+        -   [[vite-plugin-shopify-modules) by _(vite)_](#-vite-plugin-shopify-modules--https---githubcom-barrel-barrel-shopify-tree-main-packages-vite-plugin-shopify--by-barrel-ny---vite--)
     -   [Helpful Links](#helpful-links)
     -   [To-Do](#to-do)
     -   [Bugs](#bugs)
@@ -36,13 +36,13 @@ This plugin enables Shopify theme developers to structure their code into "modul
 
 ## Features
 
-###Module System
+### Module System
 
 -   Automatically associates each module folder with the matching **snippet**, **section liquid**, and **section schema** files based on parent directory name
 -   Moves liquid files created within module folders to correct theme folders
 -   Fully compatible with Shopify GitHub integration and Shopify CLI features for syncing updates from remote theme
 
-###Dynamic Shopify Section Schemas
+### Dynamic Shopify Section Schemas
 
 -   Build Shopify Section schemas dynamically from Typescript, Javascript, and JSON files
 -   Share and reuse schema partials between different modules. Promotes efficient code reusability.
@@ -53,7 +53,7 @@ This plugin enables Shopify theme developers to structure their code into "modul
 
 See [**example_modules**](./example_modules) folder for usage examples of [validators](./example_modules/gbt-curator/schema.ts) and [types](./example_modules/gbt-curator/settings.ts).
 
-##Install
+## Install
 
 ```sh
 #npm
