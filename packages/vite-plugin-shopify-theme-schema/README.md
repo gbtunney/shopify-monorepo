@@ -22,7 +22,7 @@ This plugin adds features to make it easier to manage the JSON schema files for 
     -   [Usage](#usage)
         -   [Options](#options)
     -   [Inspiration](#inspiration)
-        -   vite-plugin-shopify-theme-settings]
+        -   vite-plugin-shopify-theme-settings
     -   [Helpful Links](#helpful-links)
     -   [To-Do](#to-do)
     -   [Bugs](#bugs)
