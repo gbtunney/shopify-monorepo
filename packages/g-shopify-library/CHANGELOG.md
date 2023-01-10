@@ -1,5 +1,11 @@
 # @snailicide/g-shopify-library
 
+## 0.2.1
+
+### Patch Changes
+
+-   updated readme
+
 ## 0.2.0
 
 ### Minor Changes
