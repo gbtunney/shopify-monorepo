@@ -1,4 +1,4 @@
-# Welcome to gbtunney/shopify-monorepo🐌
+# 🐌 Welcome to gbtunney/shopify-monorepo🐌
 
 > Shopify theme development resources created by Gillian Tunney, a freelance developer and designer in Buffalo,NY
 
@@ -8,11 +8,11 @@
 
 ## Packages
 
--   [@snailicide/g-shopify-library](./packages/g-shopify-library)
+-   [@snailicide/g-shopify-library](./packages/g-shopify-library/README.md)
 
--   [@snailicide/vite-plugin-shopify-liquid-modules](./packages/vite-plugin-shopify-liquid-modules)
+-   [@snailicide/vite-plugin-shopify-liquid-modules](./packages/vite-plugin-shopify-liquid-modules/README.md)
 
--   [@snailicide/vite-plugin-shopify-theme-schema](./packages/vite-plugin-shopify-theme-schema)
+-   [@snailicide/vite-plugin-shopify-theme-schema](./packages/vite-plugin-shopify-theme-schema/README.md)
 
 ## Example
 
