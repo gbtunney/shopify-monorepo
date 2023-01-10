@@ -23,6 +23,7 @@
         "vite-plugin"
     ],
     "files": [
+        "types",
         "dist",
         "example_modules",
         "CHANGELOG.md",
@@ -53,7 +54,7 @@
         "\n========== FIX >> ==========": "",
         "fix": "pnpm prettier --write",
         "\n========== TEST >> ==========": "",
-        "test": "echo'test'"
+        "test": "echo 'test'; "
     },
     "license": "MIT",
     "author": {
