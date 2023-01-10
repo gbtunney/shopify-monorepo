@@ -1,4 +1,4 @@
-# Welcome to @snailicide/g-shopify-library👋
+# 🐌Welcome to @snailicide/g-shopify-library🐌
 
 | [npm](https://www.npmjs.com/package/@snailicide/g-shopify-library) | [GitHub](https://github.com/gbtunney/shopify-monorepo/tree/main/packages/g-shopify-library) |
 
@@ -11,7 +11,7 @@
 
 > Collections of types and utilities for working with Shopify
 
--   [Welcome to @snailicide/g-shopify-library👋](#welcome-to--snailicide-g-shopify-library--)
+-   [🐌Welcome to @snailicide/g-shopify-library🐌](#welcome-to--snailicide-g-shopify-library--)
     -   [Author](#author)
     -   [Features](#features)
     -   [Examples](#examples)
