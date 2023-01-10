@@ -1,11 +1,10 @@
 import {
+    parseSettings,
+    parseSettingsGroup,
+    parseSingleSetting,
     Setting,
     SettingsMapped,
     SingleSetting,
-    Settings,
-    parseSettings,
-    parseSingleSetting,
-    parseSettingsGroup,
 } from './index.js'
 
 describe('zod', () => {
