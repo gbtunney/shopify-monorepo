@@ -1,9 +1,10 @@
 import { Setting, SettingsMapped } from '@snailicide/g-shopify-library'
-import {
-    GlobalSettingsGroup,
-    parseThemeSettingGroup,
-} from '@snailicide/g-shopify-library'
 
+import {
+    GlobalSettingsSection,
+    parseThemeSettingSection,
+    parseThemeSettings,
+} from '@snailicide/g-shopify-library'
 type TypographySettingsGroup = {
     test_header: Setting<'header'>
     type_header_font: Setting<'font_picker'>
@@ -53,11 +54,11 @@ const getSchema = () => {
         },
     ]
 
-    const typography_group: GlobalSettingsGroup = {
+    const typography_group = {
         name: 't:settings_schema.typography.name',
         settings: typography_settings,
     }
-    const result = parseThemeSettingGroup(typography_group)
+    const result = parseThemeSettingSection(typography_group)
     if (result !== undefined) {
         return result
     } else {

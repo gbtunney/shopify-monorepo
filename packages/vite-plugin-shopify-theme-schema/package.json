@@ -44,7 +44,7 @@
         "\n========== CLEAN >> ==========": "",
         "clean": "pnpm clean:ts && pnpm clean:build && pnpm clean:example",
         "clean:ts": "tsc --build --clean",
-        "clean:example": "rm -R -f example_theme/config/*",
+        "clean:example": "pnpm run clean:ts && rm -R -f example_theme/*",
         "clean:build": "rm -R -f dist && rm -R -f types",
         "\n========== CODE STYLE >> ==========": "",
         "lint": "cross-var eslint \"{$npm_package_config_eslint_path}.{$npm_package_config_eslint_extensions}\" --ignore-path .gitignore -c $npm_package_config_eslint_config",
@@ -64,8 +64,10 @@
     "devDependencies": {
         "@snailicide/build-config": "^0.2.5",
         "@snailicide/g-shopify-library": "workspace:^0.2.1",
+        "@types/shelljs": "^0.8.11",
         "rollup": "^3.3.0",
         "rollup-plugin-typescript2": "^0.34.1",
+        "shelljs": "^0.8.5",
         "typescript": "^4.9.3",
         "vite": "^4.0.1"
     },

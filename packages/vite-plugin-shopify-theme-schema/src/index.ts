@@ -1,5 +1,7 @@
 import path from 'path'
 import fs from 'fs'
+import shell from 'shelljs'
+
 import { Plugin, ResolvedConfig } from 'vite'
 import { node, tg, zod } from '@snailicide/g-library'
 import {
@@ -38,6 +40,7 @@ const processModules = ({
     ) {
         const outThemePath = zod.filePath.parse(themeRoot)
         const outConfigDir = path.resolve(outThemePath, './config')
+        shell.mkdir('-p', outConfigDir)
 
         Object.entries(entryPoints).forEach(
             ([entry_pt_out, entry_pt_source]) => {

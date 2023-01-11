@@ -13,8 +13,7 @@ export default defineConfig({
             themeRoot: './example_theme',
             sourceCodeDir: './example_theme_config/global_settings',
             entryPoints: {
-                'settings_colors.json': 'settings_colors.js',
-                'settings_typography.json': 'settings_typography.js',
+                'settings_schema.json': 'settings_schema.js',
             },
         }),
     ],
