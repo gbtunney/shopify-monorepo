@@ -14,7 +14,10 @@ export default defineConfig({
             themeRoot: './example_theme',
             modulesDir: './example_modules',
             snippets: {
-                copy: false,
+                copy: true,
+            },
+            sections: {
+                copy: true,
             },
         }),
     ],

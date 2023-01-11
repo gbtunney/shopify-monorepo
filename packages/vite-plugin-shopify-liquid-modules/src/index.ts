@@ -1,3 +1,6 @@
+import path from 'path'
+import fs from 'fs'
+import shell from 'shelljs'
 import { Plugin, ResolvedConfig } from 'vite'
 import {
     ShopifyLiquidModulesOptions,
@@ -5,8 +8,6 @@ import {
     resolveOptions,
 } from './options'
 import { getJSONString, node, tg, zod } from '@snailicide/g-library'
-import path from 'path'
-import fs from 'fs'
 import * as console from 'console'
 export default function shopifyModules(
     options: ShopifyLiquidModulesOptions = {}
@@ -40,6 +41,8 @@ const processModules = ({
         const outThemePath = zod.filePath.parse(themeRoot)
         const outSectionsDir = path.resolve(outThemePath, './sections')
         const outSnippetsDir = path.resolve(outThemePath, './snippets')
+        shell.mkdir('-p', outSectionsDir, outSnippetsDir)
+
         const inModulesDir = zod.filePath.parse(modulesDir)
         if (sections.copy) {
             ///get list of potential modules with section files.
